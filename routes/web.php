@@ -3,6 +3,7 @@
 use App\Http\Controllers\BedroomController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KeyController;
+use App\Http\Controllers\ThanksController;
 use App\Http\Livewire\Web\Departament;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Route::post('/contact', [ KeyController::class , 'store'])->name('contac-home');
 // Route::get('/bedrooms', [ BedroomController::class , 'store'])->name('bedroom');
 Route::get('/comments', [ ContactController::class , 'index'])->name('comment');
 Route::post('/send/comment', [ ContactController::class , 'store'])->name('comment-save');
+Route::get('/location', [ ContactController::class , 'location'])->name('location');
+Route::get('/gracias',  [ ThanksController::class , 'index' ])->name('Thank_you');
 
 Route::middleware([
     'auth:sanctum',

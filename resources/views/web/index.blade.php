@@ -28,6 +28,8 @@
 											</ul>
 										</li> --}}
 										<li><a href="#contactNow">Contactó</a></li>
+										<li><a href="{{ route('location') }}">Ubicación</a></li>
+										<li><a href="{{ route('comment') }}">Reseña</a></li>
 									</ul>
 								</nav>
 								<div class="top-info">
@@ -96,6 +98,18 @@
 													<img src="{{ asset('storage/img/room-slider/nav-3.jpg')}}" alt="">
 													<div class="nav-text">
 														<p>Contactó<i class="lnr lnr-arrow-right"></i></p>
+													</div>
+												</a>
+												<a href="{{ route('location') }}" class="single-slider-nav last">
+													<img src="{{ asset('storage/img/room-slider/nav-3.jpg')}}" alt="">
+													<div class="nav-text">
+														<p>ubicación<i class="lnr lnr-arrow-right"></i></p>
+													</div>
+												</a>
+												<a href="{{ route('comment') }}" class="single-slider-nav last">
+													<img src="{{ asset('storage/img/room-slider/nav-3.jpg')}}" alt="">
+													<div class="nav-text">
+														<p>Reseña<i class="lnr lnr-arrow-right"></i></p>
 													</div>
 												</a>
 											</div>

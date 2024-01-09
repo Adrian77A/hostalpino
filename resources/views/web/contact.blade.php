@@ -1,31 +1,47 @@
 @include('layouts.app')
+
 <body>
-    <header>
-        <div class="header-container">
-            <nav class="header-nav-bar">
-                <div class="header-nav-logo">
-                    <a href="index.html">
-                        <img src="{{ asset('storage/images/logos/Logo_Hostal.png')}}" alt="star_hotels_logo">
-                    </a>
+  <!-- Header Web Web -->
+  <header class="header-section">
+    <div class="container-fluid">
+        <div class="inner-header">
+            <div class="logo">
+                <a href="{{ route('home') }}"><img
+                        src="{{ asset('storage/images/logos/Logo_Hostal_minitautra.png') }}" alt=""></a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <nav class="main-menu mobile-menu">
+                            <br>
+                            <br>
+                            <ul>
+                                <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('home') }}#OurService">Nosotros</a></li>
+                                <li><a href="{{ route('home') }}#roomsHostal">Habitaciones</a></li>
+                                <li><a href="{{ route('home') }}#contactNow">Contactó</a></li>
+                                <li><a href="{{ route('location') }}">Ubicación</a></li>
+                                <li><a href="{{ route('comment') }}">Reseña</a></li>
+                            </ul>
+                        </nav>
+                        <div class="top-info">
+                            <img src="{{ asset('storage/img/placeholder.png') }}" alt="Guadalajara hostal">
+                            <span>Guadalajara Jalisco</span>
+                        </div>
+                    </div>
                 </div>
-                <ul class="header-nav-lists">
-                    <li class="header-nav-list">
-                        <a class="header-nav-link" href="{{ route('home')}}">Home</a>
-                    </li>
-                    {{-- <li class="header-nav-list"><a class="header-nav-link" href="{{ route('bedroom')}}">Habitaciones</a></li> --}}
-                    <li class="header-nav-list header-active"><a class="header-nav-link header-active" href="{{ route('comment')}}">Comentar</a></li>
-                    <li class="header-nav-list"><a class="header-btn header-btn-custom" href="{{ route('home')}}">Contáctanos</a></li>
-                </ul>
-                <div class="header-hamburger-icon">
-                    <div class="header-hamburger-line-1"></div>
-                    <div class="header-hamburger-line-2"></div>
-                    <div class="header-hamburger-line-3"></div>
-                </div>
-            </nav>
+            </div>
+            <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
-    
-    <main>
+    </div>
+</header>
+<!-- Header Web End -->
+
+
+        <br>
+        <br>
+        <br>
+        <div class="facilities-section spad">
         <div class="container">
             <!-- Header part contain Title page and descriptoion -->
             <div class="header">
@@ -35,20 +51,21 @@
                     "¡Tu opinión es importante para nosotros! ¿Qué te pareció tu experiencia en nuestra página? Nos encantaría conocer tus comentarios."
                 </p>
             </div>
-
             <!-- End of header Part -->
-
+            <br>
+            <br>
             <!-- Main part contain form and informatoion contactus -->
             <div class="main">
                 <div class="contact">
                     <!-- Form start here -->
                     <div class="contact-form">
                         <div class="header">
-                            <h2>Danos tu opinión</h2>
+                            <h1>Danos tu opinión</h1>
                         </div>
                         <form  method="POST"  action="{{route('comment-save')}}">
                             @csrf
                             <div class="contact-detail">
+                                <h2>Titulo</h2>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror" style="resize: none; width: 100%;" placeholder="Titulo" id="title" name="title"  value="{{ old('title') }}"/>
                                 <br>
                                 @error('title')
@@ -56,14 +73,15 @@
                                 @enderror
                             </div>
                             <div class="contact-detail">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" style="resize: none; width: 100%;" placeholder="Name" id="name"   name="name" value="{{ old('name') }}" />
+                                <h2>Nombre</h2>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" style="resize: none; width: 100%;" placeholder="Nombre" id="name"   name="name" value="{{ old('name') }}" />
                                 <br>
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="contact-detail">
-
+                                <h2>Email</h2>
                                 <input
                                 type="email"
                                 value="{{ old('email') }}"
@@ -83,7 +101,7 @@
                                 class="form-control  @error('description') is-invalid @enderror"
                                 rows="5"
                                 id="description"
-                                placeholder="Message"
+                                placeholder="Descripción"
                                 style="resize: none; width: 100%;"
                                 name="description"
                                 value="{{ old('description') }}"
@@ -91,90 +109,62 @@
                             @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <button type="submit" class="btn">ENVIAR</button>
+                            <button type="submit" class="btn">ENVIAR<i class="lnr lnr-arrow-right"></i></button>
                             <br>
                         </form>
                     </div>
                     <!-- Form finish here -->
-
-                    <!-- Contact Us start here -->
-                    <div class="contact-us">
-                        <h3>Contactanos</h3>
-
-                        <span
-                            ><i
-                                style="font-size: 1.5rem;"
-                                class="fa fa-map-marker"
-                                aria-hidden="true"
-                            ></i
-                            >33 1425 2572</span
-                        >
-                        <span
-                            ><i
-                                style="font-size: 1.5rem;"
-                                class="fa fa-phone"
-                                aria-hidden="true"
-                            ></i
-                            >"¡Comenta ahora!"</span
-                        >
-                        {{-- <span>
-
-                            <i
-                                style="font-size: 1.5rem;"
-                                class="fa fa-envelope-o"
-                                aria-hidden="true"
-                            >
-                            </i
-                            >administrador@hostal.com</span> --}}
-                    </div>
-                    <!-- Contact Us Finish here -->
                 </div>
             </div>
-        </div>
-    </main>
 
-    <footer class="footer">
-		<div class="footer-container">
-			<nav class="footer-nav">
-				<div class="footer-description">
-					<h3 class="footer-description-title">Hostal</h3>
-					<p>Donde la comodidad se encuentra con la hospitalidad</p>
-				</div>
-				<div class="footer-contact-us">
-					<h3 class="footer-description-title">Contáctanos</h3>
-					<p class="footer-description-detail"> 
-						<img src="{{ asset('storage/images/web/map-pin.svg')}}" class="footer-description-icon" alt="hostal_location">
-						<span>C. Pino Suárez 558, Centro Barranquitas, 44280 Guadalajara, Jal.</span></p>
-					<p class="footer-description-detail">
-						<img src="{{ asset('storage/images/web/phone.svg')}}" class="footer-description-icon" alt="star hotels phone number"> 
-						<span>33 1425 2572</span></p>
-					<p class="footer-description-detail">
-						<img src="{{ asset('storage/images/web/mail.svg')}}" class="footer-description-icon" alt="star hotels email">
-						<span>administrador@hostal.com</span> </p>
-				</div>
-				<div class="footer-follow-us">
-					<h3 class="footer-description-title">Redes sociales</h3>
-					<ul class="footer-follow-us-lists">
-						<li class="follow-us-list">
-							<a href="">
-								<img src="{{ asset('storage/images/web/facebook.svg')}}" alt="hostal_facebook_page">
-							</a>
-						</li>
-						<li class="follow-us-list">
-							<a href="">
-								<img src="{{ asset('storage/images/web/twitter.svg')}}" alt="hostal_twitter_page">
-							</a>
-						</li>
-						<li class="follow-us-list">
-							<a href="">
-								<img src="{{ asset('storage/images/web/instagram.svg')}}" alt="hostal_instagram_page">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-	</footer>
+
+
+            <div class="container showtrue">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-nav">
+                            <a href="{{ route('home') }}#OurService" class="single-slider-nav">
+                                <img src="#" alt="">
+                                <div class="nav-text active">
+                                    <p>Nosotros<i class="lnr lnr-arrow-right"></i></p>
+                                </div>
+                            </a>
+                            <a href="{{ route('home') }}#roomsHostal" class="single-slider-nav">
+                                <div class="nav-text">
+                                    <p>Habitaciones<i class="lnr lnr-arrow-right"></i></p>
+                                </div>
+                            </a>
+                            <a href="{{ route('home') }}#contactNow" class="single-slider-nav last">
+                                <img src="{{ asset('storage/img/room-slider/nav-3.jpg') }}" alt="">
+                                <div class="nav-text">
+                                    <p>Contactó<i class="lnr lnr-arrow-right"></i></p>
+                                </div>
+                            </a>
+                            <a href="{{ route('location') }}" class="single-slider-nav last">
+                                <img src="{{ asset('storage/img/room-slider/nav-3.jpg') }}" alt="">
+                                <div class="nav-text">
+                                    <p>ubicación<i class="lnr lnr-arrow-right"></i></p>
+                                </div>
+                            </a>
+                            <a href="{{ route('comment') }}" class="single-slider-nav last">
+                                <img src="{{ asset('storage/img/room-slider/nav-3.jpg')}}" alt="">
+                                <div class="nav-text">
+                                    <p>Reseña<i class="lnr lnr-arrow-right"></i></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
 
     <script src="assets/js/toggleHamburger.js"></script>
+    <!-- Footer Room Pic Section End -->
+    @include('layouts.footer')
+
 </body>
