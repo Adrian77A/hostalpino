@@ -32,6 +32,11 @@ class ContactController extends Controller
             'date' =>  $date_current
         ]);
         
-        return redirect()->route('home')->with('success','Comentario guardadó exitosamente!.');
+        return redirect()->route('Thank_you')->with('success','Comentario guardadó exitosamente!.');
+        
+    }
+
+    public function location(){
+        return view('web.location'); 
     }
 }
