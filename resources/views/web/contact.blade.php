@@ -20,7 +20,7 @@
                                 <li><a href="{{ route('home') }}#OurService">Nosotros</a></li>
                                 <li><a href="{{ route('home') }}#roomsHostal">Habitaciones</a></li>
                                 <li><a href="{{ route('home') }}#contactNow">Contactó</a></li>
-                                <li><a href="{{ route('location') }}">Ubicación</a></li>
+                                <li><a href="{{ route('home') }}#locationTrue">Ubicación</a></li>
                                 <li><a href="{{ route('comment') }}">Reseña</a></li>
                             </ul>
                         </nav>
@@ -142,7 +142,7 @@
                                     <p>Contactó<i class="lnr lnr-arrow-right"></i></p>
                                 </div>
                             </a>
-                            <a href="{{ route('location') }}" class="single-slider-nav last">
+                            <a href="{{ route('home') }}#locationTrue" class="single-slider-nav last">
                                 <img src="{{ asset('storage/img/room-slider/nav-3.jpg') }}" alt="">
                                 <div class="nav-text">
                                     <p>ubicación<i class="lnr lnr-arrow-right"></i></p>

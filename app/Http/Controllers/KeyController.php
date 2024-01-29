@@ -19,8 +19,8 @@ class KeyController extends Controller
     public function index(){
         $all_comment = Comment::status()->get();
         $array_order_data = Banner::status()->orderBy('order')->get();
-        $get_hotel_pino = Hotel::whereName('Pino Zuares')->with('bedroom')->get()->first();
-
+        $get_hotel_pino = Hotel::whereName('Pino suares #562')->with('bedroom')->get()->first();
+        
         return view('web.index',  ['all_comment' => $all_comment, 'banners'  => $array_order_data, 'data_pino' => $get_hotel_pino ]);
     }
 

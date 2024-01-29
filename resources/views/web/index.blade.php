@@ -28,7 +28,7 @@
 											</ul>
 										</li> --}}
 										<li><a href="#contactNow">Contactó</a></li>
-										<li><a href="{{ route('location') }}">Ubicación</a></li>
+										<li><a href="#locationTrue">Ubicación</a></li>
 										<li><a href="{{ route('comment') }}">Reseña</a></li>
 									</ul>
 								</nav>
@@ -46,7 +46,7 @@
 		<!-- Header Web End -->
 		
 		<!-- Hero Slider Begin -->
-		<div style="background-image: url({{ asset('storage/images/web/gradient_1.png')}})" >
+		<div style="background: #233d4d" >
 			<div class="hero-slider">
 				<div class="slider-item">
 					<div class="single-slider-item set-bg">
@@ -100,7 +100,7 @@
 														<p>Contactó<i class="lnr lnr-arrow-right"></i></p>
 													</div>
 												</a>
-												<a href="{{ route('location') }}" class="single-slider-nav last">
+												<a href="#locationTrue" class="single-slider-nav last">
 													<img src="{{ asset('storage/img/room-slider/nav-3.jpg')}}" alt="">
 													<div class="nav-text">
 														<p>ubicación<i class="lnr lnr-arrow-right"></i></p>
@@ -304,6 +304,33 @@
 		</div>
 		<!-- End  Room-->
 
+
+		<!-- location -->
+
+		<div class="container" id="locationTrue">
+            <div class="facilities-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                        </div>
+                    </div>
+                    <div class="col-lg-10 offset-lg-1 section-title">
+                        <h1>Ubicación</h1>
+                    </div>
+                    <div class="col-lg-12 p-0">
+                        <div class="facilities-text-warp">
+                            <div class="facilities-text">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d613.3724212258635!2d-103.3466868981529!3d20.68582550673423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDQxJzA5LjAiTiAxMDPCsDIwJzQ2LjUiVw!5e0!3m2!1ses!2smx!4v1704818324448!5m2!1ses!2smx"
+                                    width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<!-- End  Location-->
 
 
 

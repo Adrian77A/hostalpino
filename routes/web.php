@@ -23,7 +23,7 @@ Route::post('/contact', [ KeyController::class , 'store'])->name('contac-home');
 // Route::get('/bedrooms', [ BedroomController::class , 'store'])->name('bedroom');
 Route::get('/comments', [ ContactController::class , 'index'])->name('comment');
 Route::post('/send/comment', [ ContactController::class , 'store'])->name('comment-save');
-Route::get('/location', [ ContactController::class , 'location'])->name('location');
+// Route::get('/location', [ ContactController::class , 'location'])->name('location');
 Route::get('/gracias',  [ ThanksController::class , 'index' ])->name('Thank_you');
 
 Route::middleware([
