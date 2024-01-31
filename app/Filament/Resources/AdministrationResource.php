@@ -40,6 +40,12 @@ class AdministrationResource extends Resource
 
     protected static ?string $navigationGroup = 'Calcular ganacias';
 
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
+    
     public static function form(Form $form): Form
     {
         return $form

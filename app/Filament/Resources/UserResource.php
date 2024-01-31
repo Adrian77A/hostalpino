@@ -16,12 +16,30 @@ use Filament\Resources\Pages\Page;
 use Filament\Forms\Components\Select;
 use Illuminate\Support\Facades\Hash;
 use Filament\Forms\Components\Card;
+use Filament\Tables\Filters\Filter;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user-circle';
+
+    protected static ?string $activeNavigationIcon = 'heroicon-s-cursor-click';
+
+    protected static function getNavigationGroup(): string
+    {
+        return __('Usuarios');
+    }
+
+    protected static function getNavigationLabel(): string
+    {
+        return __('Usuario');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Usuarios');
+    }
 
     public static function form(Form $form): Form
     {
@@ -50,14 +68,6 @@ class UserResource extends Resource
                     Select::make('permissions')
                         ->multiple()
                         ->relationship('permissions', 'name')->preload(),
-                    // Forms\Components\Textarea::make('two_factor_secret')
-                    //     ->maxLength(65535),
-                    // Forms\Components\Textarea::make('two_factor_recovery_codes')
-                    //     ->maxLength(65535),
-                    // Forms\Components\DateTimePicker::make('two_factor_confirmed_at'),
-                    // Forms\Components\TextInput::make('current_team_id'),
-                    // Forms\Components\TextInput::make('profile_photo_path')
-                    //     ->maxLength(2048),
                     ])->columns(2)
                 ]);
     }
@@ -66,26 +76,20 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                ->searchable()
+                ->sortable(),
                 Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime(),
-                // Tables\Columns\TextColumn::make('two_factor_secret'),
-                // Tables\Columns\TextColumn::make('two_factor_recovery_codes'),
-                // Tables\Columns\TextColumn::make('two_factor_confirmed_at')
-                //     ->dateTime(),
-                // Tables\Columns\TextColumn::make('current_team_id'),
-                // Tables\Columns\TextColumn::make('profile_photo_path'),
-                // Tables\Columns\TextColumn::make('created_at')
-                //     ->dateTime(),
-                // Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('roles.name'),
+                // Tables\Columns\TextColumn::make('email_verified_at')
                 //     ->dateTime(),
             ])
             ->filters([
-                //
+                Filter::make('name')->label('Nombre')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

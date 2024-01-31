@@ -35,6 +35,11 @@ class GuestResource extends Resource
     protected static ?string $navigationLabel = 'Inquilinos';
 
     protected static ?string $navigationGroup = 'Administración';
+    
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 
     public static function form(Form $form): Form
     {

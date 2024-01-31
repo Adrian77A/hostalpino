@@ -29,6 +29,12 @@ class CommentResource extends Resource
 
     protected static ?string $navigationGroup = 'Pagina Web';
 
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
+
+    
     public static function form(Form $form): Form
     {
         return $form

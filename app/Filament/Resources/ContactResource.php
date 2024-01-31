@@ -28,6 +28,16 @@ class ContactResource extends Resource
     protected static ?string $navigationLabel = 'Contactos';
 
     protected static ?string $navigationGroup = 'Pagina Web';
+
+    protected static function getNavigationLabel(): string
+    {
+        return __('Contacto');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Contactos');
+    }
     
     public static function form(Form $form): Form
     {
@@ -87,6 +97,7 @@ class ContactResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

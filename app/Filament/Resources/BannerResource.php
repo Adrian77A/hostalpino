@@ -33,6 +33,8 @@ class BannerResource extends Resource
 
     protected static ?string $navigationGroup = 'Pagina Web';
 
+    protected static ?string $activeNavigationIcon = 'heroicon-s-cursor-click';
+
     public static function form(Form $form): Form
     {
         return $form

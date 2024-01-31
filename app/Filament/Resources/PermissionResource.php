@@ -23,6 +23,19 @@ class PermissionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+
+    protected static ?string $activeNavigationIcon = 'heroicon-s-cursor-click';
+    
+    protected static function getNavigationGroup(): string
+    {
+        return __('Usuarios');
+    }
+    
+    public static function getModelLabel(): string
+    {
+        return __('Permiso');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -30,13 +43,13 @@ class PermissionResource extends Resource
                 Card::make()
                     ->schema([
                         TextInput::make('name')
+                        ->label('Nombre')
                         ->minLength(2)
                         ->maxLength(255)
                         ->required()
                         ->unique(),
                 ])
                 ->columns(1)
-                
             ]);
     }
 
@@ -44,13 +57,14 @@ class PermissionResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('name')->label('Nombre')
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

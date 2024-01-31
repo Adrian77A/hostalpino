@@ -11,31 +11,28 @@ class RoleSeeder extends Seeder
 {
     /**
      * php artisan db:seed --class=RoleSeeder
-     *  Seeder para agregar el admin
+     *  Seeder para agregar usuarios
      * @return void
      */
     public function run(): void
     {
         
        $user =  User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'name' => 'Adrian',
+            'email' => 'adrian@gmail.com',
             'password' => '$2y$10$cmg/N6nii7HmAbZQsTV4keZIJUByjunHdNC.WgwIt/FStTOvj/wCq',
         ]);
 
-        $role = Role::create(['name' => 'Admin']);
+        // $role_admin = Role::create(['name' => 'Admin']);
+        // $user->assignRole($role_admin);
 
-        $user->assignRole($role);
+        $user_invited = User::create([
+            'name' => 'Giovanna',
+            'email' => 'giovanna@gmail.com',
+            'password' => '$2y$10$cmg/N6nii7HmAbZQsTV4keZIJUByjunHdNC.WgwIt/FStTOvj/wCq',
+        ]);
 
-        // $user =  User::create([
-        //     'name' => 'Mantenimiento',
-        //     'email' => 'mantenimiento@example.com',
-        //     'password' => '$2y$10$cmg/N6nii7HmAbZQsTV4keZIJUByjunHdNC.WgwIt/FStTOvj/wCq',
-        // ]);
-
-        // $role = Role::create(['name' => 'Mantenimiento']);
-        // $role_two = Role::create(['name' => 'Super Admin']);
-
-        // $user->assignRole($role);
+        // $role_invited = Role::create(['name' => 'Invitado']);
+        // $user_invited->assignRole($role_invited);
     }
 }
